@@ -27,7 +27,7 @@ class ArtistUpdateInner extends React.Component {
     e.preventDefault();
 	
     this.setState({
-      name: e.target.value,
+      Alais: e.target.value,
 	  Coll: "album"
     });
   }
@@ -36,7 +36,7 @@ class ArtistUpdateInner extends React.Component {
     e.preventDefault();
     
     this.setState({
-      date: e.target.value
+      name: e.target.value
     });
   }
   
@@ -65,7 +65,6 @@ class ArtistUpdateInner extends React.Component {
       JSON.stringify({
         Alais: this.state.Alais,
 		name: this.state.name,
-		Artist: this.state.Artist,
         Photo: this.state.Photo,
 		Coll: this.state.Coll
       }),
