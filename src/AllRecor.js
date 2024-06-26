@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {todoDelete} from './actions';
 
 
-class ToDoTask extends React.Component {
+class AllRecor extends React.Component {
 	
 	constructor(props) 
 	{
@@ -48,4 +48,4 @@ class ToDoTask extends React.Component {
     }
 }
 
-export default connect()(ToDoTask);
+export default connect()(AllRecor);

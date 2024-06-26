@@ -12,7 +12,7 @@ function GetLocation(){
 	return props;
 }
 
-class AlbumAddInner extends React.Component {
+class UpdaterInner extends React.Component {
   
   constructor(props = GetLocation()) 
   {
@@ -157,9 +157,9 @@ class AlbumAddInner extends React.Component {
     }
 }
 
-const AlbumAdd = (props) =>{
+const Updater = (props) =>{
   return (
-    <AlbumAddInner {...props} history={useNavigate()}/>
+    <UpdaterInner {...props} history={useNavigate()}/>
   )
 }
 
@@ -170,4 +170,4 @@ function mapStateProps(state)
 	}
 }
 
-export default connect(mapStateProps)(AlbumAdd);
+export default connect(mapStateProps)(Updater);

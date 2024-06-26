@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import AllList from './AllList';
 import ArtistList from './ArtistList';
 import AlbumList from './AlbumList';
-import ToDoTaskAdd from './ToDoTaskAdd';
+import ArtistAdd from './ArtistAdd';
 import AlbumAdd from './AlbumAdd';
 import Updater from './Updater';
 
@@ -21,7 +21,7 @@ class App extends React.Component {
 							<Route path="/" element={<AllList />} />
 							<Route path="/Artist" element={<ArtistList />} />
 							<Route path="/Album" element={<AlbumList />} />
-							<Route path="/AddArtist" element={<ToDoTaskAdd />} />
+							<Route path="/AddArtist" element={<ArtistAdd />} />
 							<Route path="/AddAlbum" element={<AlbumAdd />} />
 							<Route path="/UpdateAlbum" element={<Updater />} />
 						</Routes>

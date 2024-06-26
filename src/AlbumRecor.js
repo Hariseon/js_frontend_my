@@ -9,7 +9,7 @@ function GetNavigate(path, toData){
 	return navigate(path, {state: toData.state});
 }
 
-class ToDoTask extends React.Component {
+class AlbumRecor extends React.Component {
 	constructor(props) 
 	{
 		super(props);
@@ -58,4 +58,4 @@ class ToDoTask extends React.Component {
 }
 
 
-export default connect()(ToDoTask);
+export default connect()(AlbumRecor);

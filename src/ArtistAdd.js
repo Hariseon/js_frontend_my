@@ -5,7 +5,7 @@ import {todoAdd} from './actions';
 
 
 
-class ToDoTaskAddInner extends React.Component {
+class ArtistAddInner extends React.Component {
   
   constructor(props) 
   {
@@ -102,10 +102,10 @@ class ToDoTaskAddInner extends React.Component {
     }
 }
 
-const ToDoTaskAdd = (props) =>{
+const ArtistAdd = (props) =>{
   return (
-    <ToDoTaskAddInner {...props} history={useNavigate()}/>
+    <ArtistAddInner {...props} history={useNavigate()}/>
   )
 }
 
-export default connect()(ToDoTaskAdd);
+export default connect()(ArtistAdd);
