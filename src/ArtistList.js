@@ -20,11 +20,11 @@ class ArtistList extends React.Component {
 	
 	render() {
 		return (
-			<div className="ArtistList" key={this.props.entity._id}>
+			<div className="ArtistList">
 				<button><NavLink to='/AddArtist'> Добавить Артиста </NavLink></button>
 				<button><NavLink to='/Album'> Список Альбомов </NavLink></button>
 				<button><NavLink to='/'>Общий список</NavLink></button>
-				<ul className="team" key={this.props.entity._id}>
+				<ul className="team" >
 				{
 					this.props.entity.map((entity) =>
 					{

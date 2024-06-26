@@ -19,7 +19,7 @@ class AllList extends React.Component {
 	
 	render() {	
 		return (
-			<div className="AllList" key="List">
+			<div className="AllList">
 				<button><NavLink to='/Artist'>Список Артистов</NavLink></button>
 				<button><NavLink to='/Album'>Список Альбомов</NavLink></button>
 				<ul className="team">
