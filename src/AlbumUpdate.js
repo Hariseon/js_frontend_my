@@ -1,18 +1,15 @@
 import React from 'react';
-import {useState} from 'react';
 import {useNavigate, NavLink, useLocation} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {todoAdd, todoUpdate, todoAddAll} from './actions';
-import ArtistRecor from './ArtistRecor';
+import {todoUpdate, todoAddAll} from './actions';
 import SelectArtist from './SelectArtist';
 
 
-class UpdaterInner extends React.Component {
+class AlbumUpdateInner extends React.Component {
   
   constructor(props) 
   {
     super(props);
-	console.log(props.location.state.album);
     this.state={
       id: props.location.state.album._id,
 	  name: props.location.state.album.name,
@@ -126,7 +123,9 @@ class UpdaterInner extends React.Component {
 	{
     return(
       <div className = "Update">
-        <NavLink to='/'>back To List</NavLink>
+        <button><NavLink to='/'>back To List</NavLink></button>
+		<li className="member">
+		<div className="description">
 		<form onSubmit={this.onAddFormSubmit} >
 			<input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='Название'/>
 			<input type="text" name="date" value={this.state.date} onChange = {this.onDateChange} placeholder='Дата выхода'/>
@@ -148,14 +147,16 @@ class UpdaterInner extends React.Component {
 			<label>Об альбоме<input type="file" name="filedat" onChange = {this.onAboutAlbumChange} /></label>
 			<input type="submit" value="Update" />
         </form>
+		</div>
+		</li>
       </div>
     )  
     }
 }
 
-const Updater = (props) =>{
+const AlbumUpdate = (props) =>{
   return (
-    <UpdaterInner {...props} location={useLocation()} history={useNavigate()}/>
+    <AlbumUpdateInner {...props} location={useLocation()} history={useNavigate()}/>
   )
 }
 
@@ -166,4 +167,4 @@ function mapStateProps(state)
 	}
 }
 
-export default connect(mapStateProps)(Updater);
+export default connect(mapStateProps)(AlbumUpdate);

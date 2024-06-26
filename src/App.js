@@ -7,7 +7,9 @@ import ArtistList from './ArtistList';
 import AlbumList from './AlbumList';
 import ArtistAdd from './ArtistAdd';
 import AlbumAdd from './AlbumAdd';
-import Updater from './Updater';
+import AlbumUpdate from './AlbumUpdate';
+import ArtistUpdate from './ArtistUpdate';
+import ArtistDetails from './ArtistDetails';
 
 
 class App extends React.Component {
@@ -23,7 +25,9 @@ class App extends React.Component {
 							<Route path="/Album" element={<AlbumList />} />
 							<Route path="/AddArtist" element={<ArtistAdd />} />
 							<Route path="/AddAlbum" element={<AlbumAdd />} />
-							<Route path="/UpdateAlbum" element={<Updater />} />
+							<Route path="/AlbumUpdate" element={<AlbumUpdate />} />
+							<Route path="/ArtistUpdate" element={<ArtistUpdate />} />
+							<Route path="/ArtistDetails" element={<ArtistDetails />} />
 						</Routes>
 					</Router>
 				</Provider>

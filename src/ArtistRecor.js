@@ -1,15 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 
 import {todoDelete} from './actions';
 
 
-class ArtistRecor extends React.Component {
+class ArtistRecorInner extends React.Component {
 	
 	constructor(props) 
 	{
 		super(props);
 		this.onDeleteClick = this.onDeleteClick.bind(this);
+		this.handleClickUpdate = this.handleClickUpdate.bind(this);
+		this.handleClickDetails = this.handleClickDetails.bind(this);
+	}
+	
+	handleClickUpdate(e)
+	{
+		this.props.history('/ArtistUpdate', {state: {artist: this.props.entity}});
+	}
+	
+	handleClickDetails(e)
+	{
+		this.props.history('/ArtistDetails', {state: {artist: this.props.entity}});
 	}
 	
 	onDeleteClick(e)
@@ -40,12 +53,19 @@ class ArtistRecor extends React.Component {
 			<div className="description">
 				<h3>  {this.props.entity.Alais} </h3> 
 				<p> <i> {this.props.entity.name} </i> 
-				<button>Update</button>
-				<button onClick={this.onDeleteClick}>Delete</button></p>
+				<button onClick={this.handleClickUpdate}>Update</button>
+				<button onClick={this.onDeleteClick}>Delete</button>
+				<button onClick={this.handleClickDetails}>Details</button></p>
 			</div>
 			</li>
 		)	
     }
+}
+
+const ArtistRecor = (props) =>{
+	return (
+		<ArtistRecorInner {...props} history={useNavigate()}/>
+	)
 }
 
 export default connect()(ArtistRecor);

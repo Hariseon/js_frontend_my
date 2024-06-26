@@ -15,7 +15,7 @@ class AlbumRecorInner extends React.Component {
 	
 	handleClickUpdate(e)
 	{
-		this.props.history('/UpdateAlbum', {state: {album: this.props.entity}});
+		this.props.history('/AlbumUpdate', {state: {album: this.props.entity}});
 	}
 	
 	onDeleteClick(e)
