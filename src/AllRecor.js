@@ -36,9 +36,9 @@ class ToDoTask extends React.Component {
 	{
 		
 		return(
-			<li class="member" key="this.props.entity._id">
-			<div class="thumb"><img alt="" src={this.props.entity.Photo} /></div>
-			<div class="description">
+			<li className="member" key="this.props.entity._id">
+			<div className="thumb"><img alt="" src={this.props.entity.Photo} /></div>
+			<div className="description">
 				<h3>{this.props.entity.name}</h3><p></p> 
 				<button onClick={this.onDeleteClick}>Delete</button>
 			</div>

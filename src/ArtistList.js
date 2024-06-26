@@ -24,7 +24,7 @@ class ArtistList extends React.Component {
 				<button><NavLink to='/AddArtist'> Добавить Артиста </NavLink></button>
 				<button><NavLink to='/Album'> Список Альбомов </NavLink></button>
 				<button><NavLink to='/'>Общий список</NavLink></button>
-				<ul class="team" key={this.props.entity._id}>
+				<ul className="team" key={this.props.entity._id}>
 				{
 					this.props.entity.map((entity) =>
 					{

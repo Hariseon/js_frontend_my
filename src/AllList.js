@@ -6,7 +6,7 @@ import AllRecor from './AllRecor';
 import {todoAddAll} from './actions';
 
 
-class ToDoList extends React.Component {
+class AllList extends React.Component {
     
 	componentDidMount(){
 		fetch('all').then(function(res){
@@ -19,22 +19,24 @@ class ToDoList extends React.Component {
 	
 	render() {	
 		return (
-			<div className="AllList" key={this.props.entity._id}>
+			<div className="AllList" key="List">
 				<button><NavLink to='/Artist'>Список Артистов</NavLink></button>
 				<button><NavLink to='/Album'>Список Альбомов</NavLink></button>
-				<ul class="team">
+				
 				{
 					this.props.entity.map((entity) =>
 					{
 						return(
-						<>
+							<div>
+							<ul className="team" key={entity._id}>
 							<AllRecor entity={entity} key={entity._id} />
 							<br></br>
-							</>
+							</ul>
+							</div>
 						)	
 					})
 				}
-				</ul>
+				
 			</div>
 		);
     }
@@ -47,4 +49,4 @@ function mapStateProps(state)
 	}
 }
 
-export default connect(mapStateProps)(ToDoList);
+export default connect(mapStateProps)(AllList);
