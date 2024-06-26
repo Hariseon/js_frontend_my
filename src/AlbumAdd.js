@@ -126,7 +126,7 @@ class AlbumAddInner extends React.Component {
     return(
       <div className = "Add">
         <button><NavLink to='/'>back To List</NavLink></button>
-		<li className="member" key="Updateter">
+		<li className="member">
 		<div className="description">
 			<form onSubmit={this.onAddFormSubmit} >
 			<p> 
