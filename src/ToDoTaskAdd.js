@@ -87,8 +87,8 @@ class ToDoTaskAddInner extends React.Component {
     return(
       <div className = "Add">
         <button><NavLink to='/'>back To List</NavLink></button>
-		<li class="member">
-		<div class="description">
+		<li className="member">
+		<div className="description">
         <form onSubmit={this.onAddFormSubmit} >
           <input type="text" name="Alais" value={this.state.Alais} onChange = {this.onAlaisChange} placeholder='Alais'/>
           <input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='name'/>
