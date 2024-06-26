@@ -29,10 +29,10 @@ class ArtistList extends React.Component {
 					this.props.entity.map((entity) =>
 					{
 						return(
-							<>
-							<ArtistRecor entity={entity} key={entity._id} />
+							<div key={entity._id}>
+							<ArtistRecor entity={entity} />
 							<br></br>
-							</>
+							</div>
 						)	
 					})
 				}
