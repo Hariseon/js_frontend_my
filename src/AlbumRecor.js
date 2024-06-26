@@ -1,16 +1,23 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import {todoDelete} from './actions';
 
+function GetNavigate(path, toData){
+	const navigate = useNavigate();
+	return navigate(path, {state: toData.state});
+}
 
 class ToDoTask extends React.Component {
-	
 	constructor(props) 
 	{
 		super(props);
 		this.onDeleteClick = this.onDeleteClick.bind(this);
+		this.handleClickUpdate = () => {
+			const data = props; 
+			GetNavigate('/UpdateAlbum', {state: data});
+			};	
 	}
 	
 	onDeleteClick(e)
@@ -32,16 +39,17 @@ class ToDoTask extends React.Component {
 		});
 	}
 	
+	
     render() 
 	{
 		
 		return(
-			<li class="member">
-			<div class="thumb"><img alt="" src={this.props.entity.Photo}/></div>
-			<div class="description">
+			<li className="member" key={this.props.entity._id}>
+			<div className="thumb"><img alt="" src={this.props.entity.Photo}/></div>
+			<div className="description" key={this.props.entity._id}>
 				<h3>  {this.props.entity.name}, {this.props.entity.date} </h3>
 				<p> <i> {this.props.entity.AboutAlbum} </i> 
-				<button><NavLink to={{pathname:`/UpdateAlbum/${this.props.entity._id}`, aboutProps:{selectedidds:this.props.entity._id}}}>Preview Question</NavLink></button>
+				<button onClick={this.handleClickUpdate}>Update</button>
 				<button onClick={this.onDeleteClick}>Delete</button></p>
 			</div>
 			</li>

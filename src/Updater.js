@@ -1,21 +1,25 @@
 import React from 'react';
 import {useState} from 'react';
-import {useNavigate, NavLink} from 'react-router-dom';
-import {useLocation} from "react-router";
+import {useNavigate, NavLink, useLocation} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {todoAdd, todoAlbumAdd, todoAddAll} from './actions';
 import ArtistRecor from './ArtistRecor';
 import SelectArtist from './SelectArtist';
 
+function GetLocation(){
+	const location = useLocation();
+	const {props} = location.state || {};
+	return props;
+}
 
 class AlbumAddInner extends React.Component {
   
-  constructor(props) 
+  constructor(props = GetLocation()) 
   {
     super(props);
 	console.log(props.location);
     this.state={
-      name:'',
+      name:props.name,
       Photo: '',
 	  date: '',
 	  Artist: '',
@@ -131,7 +135,7 @@ class AlbumAddInner extends React.Component {
 			<input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='Название'/>
 			<input type="text" name="date" value={this.state.date} onChange = {this.onDateChange} placeholder='Дата выхода'/>
 			<label> Выберите автора альбома из списка артистов:
-				<select name="Artist" id="ArtSel" onChange = {this.onArtistChange}>
+				<select name="Artist" id="ArtSel" onChange = {this.onArtistChange} key={this.props.entity._id}>
 					<option ></option>
 					{
 					this.props.entity.map((entity) =>

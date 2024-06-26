@@ -8,8 +8,6 @@ import AlbumList from './AlbumList';
 import ToDoTaskAdd from './ToDoTaskAdd';
 import AlbumAdd from './AlbumAdd';
 import Updater from './Updater';
-import EntityList from './EntityList';
-import {todoAddAll} from './actions';
 
 
 class App extends React.Component {
@@ -25,8 +23,7 @@ class App extends React.Component {
 							<Route path="/Album" element={<AlbumList />} />
 							<Route path="/AddArtist" element={<ToDoTaskAdd />} />
 							<Route path="/AddAlbum" element={<AlbumAdd />} />
-							<Route path="/UpdateAlbum/:id" element={<Updater />} />
-							<Route path="/Entity/:id" element={<EntityList />} />
+							<Route path="/UpdateAlbum" element={<Updater />} />
 						</Routes>
 					</Router>
 				</Provider>

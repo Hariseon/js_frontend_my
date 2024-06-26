@@ -19,7 +19,7 @@ class ToDoList extends React.Component {
 	
 	render() {	
 		return (
-			<div className="AllList">
+			<div className="AllList" key={this.props.entity._id}>
 				<button><NavLink to='/Artist'>Список Артистов</NavLink></button>
 				<button><NavLink to='/Album'>Список Альбомов</NavLink></button>
 				<ul class="team">
