@@ -126,27 +126,33 @@ class AlbumAddInner extends React.Component {
     return(
       <div className = "Add">
         <button><NavLink to='/'>back To List</NavLink></button>
-		<form onSubmit={this.onAddFormSubmit} >
-			<input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='Название'/>
-			<input type="text" name="date" value={this.state.date} onChange = {this.onDateChange} placeholder='Дата выхода'/>
-			<label> Выберите автора альбома из списка артистов:
-				<select name="Artist" id="ArtSel" onChange = {this.onArtistChange}>
-					<option ></option>
-					{
-					this.props.entity.map((entity) =>
-					{
-						return(
-							<SelectArtist entity={entity} key={entity._id} />
-						)	
-					})
-				}
-				</select>
-				</label>
-				<br></br>
-			<label>Фото<input type="file" name="filedata" onChange = {this.onPhotoChange} /></label>
-			<label>Об альбоме<input type="file" name="filedat" onChange = {this.onAboutAlbumChange} /></label>
-			<input type="submit" value="Add" />
-        </form>
+		<li class="member">
+		<div class="description">
+			<form onSubmit={this.onAddFormSubmit} >
+			<p> 
+				<input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='Название'/>
+				<input type="text" name="date" value={this.state.date} onChange = {this.onDateChange} placeholder='Дата выхода'/>
+				<label> Выберите автора альбома из списка артистов:
+					<select name="Artist" id="ArtSel" onChange = {this.onArtistChange}>
+						<option ></option>
+						{
+						this.props.entity.map((entity) =>
+						{
+							return(
+								<SelectArtist entity={entity} key={entity._id} />
+							)	
+						})
+					}
+					</select>
+					</label>
+					<br></br>
+				<label>Фото<input type="file" name="filedata" onChange = {this.onPhotoChange} /></label>
+				<label>Об альбоме<input type="file" name="filedat" onChange = {this.onAboutAlbumChange} /></label>
+				<input type="submit" value="Add" />
+			</p>
+			</form>
+		</div>
+		</li>
       </div>
     )  
     }

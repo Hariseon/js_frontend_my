@@ -87,12 +87,16 @@ class ToDoTaskAddInner extends React.Component {
     return(
       <div className = "Add">
         <button><NavLink to='/'>back To List</NavLink></button>
+		<li class="member">
+		<div class="description">
         <form onSubmit={this.onAddFormSubmit} >
           <input type="text" name="Alais" value={this.state.Alais} onChange = {this.onAlaisChange} placeholder='Alais'/>
           <input type="text" name="name" value={this.state.name} onChange = {this.onNameChange} placeholder='name'/>
-          <button><label>Фото<input type="file" name="filedata" onChange = {this.onPhotoChange} /></label></button>
+          <label>Фото<input type="file" name="filedata" onChange = {this.onPhotoChange} /></label>
           <input type="submit" value="Add" />
         </form>
+		</div>
+		</li>
       </div>
     )  
     }
