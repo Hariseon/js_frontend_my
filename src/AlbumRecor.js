@@ -44,9 +44,9 @@ class ToDoTask extends React.Component {
 	{
 		
 		return(
-			<li className="member" key={this.props.entity._id}>
+			<li className="member">
 			<div className="thumb"><img alt="" src={this.props.entity.Photo}/></div>
-			<div className="description" key={this.props.entity._id}>
+			<div className="description">
 				<h3>  {this.props.entity.name}, {this.props.entity.date} </h3>
 				<p> <i> {this.props.entity.AboutAlbum} </i> 
 				<button onClick={this.handleClickUpdate}>Update</button>
