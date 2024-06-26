@@ -2,29 +2,25 @@ import React from 'react';
 import {useState} from 'react';
 import {useNavigate, NavLink, useLocation} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {todoAdd, todoAlbumAdd, todoAddAll} from './actions';
+import {todoAdd, todoUpdate, todoAddAll} from './actions';
 import ArtistRecor from './ArtistRecor';
 import SelectArtist from './SelectArtist';
 
-function GetLocation(){
-	const location = useLocation();
-	const {props} = location.state || {};
-	return props;
-}
 
 class UpdaterInner extends React.Component {
   
-  constructor(props = GetLocation()) 
+  constructor(props) 
   {
     super(props);
-	console.log(props.location);
+	console.log(props.location.state.album);
     this.state={
-      name:props.name,
-      Photo: '',
-	  date: '',
-	  Artist: '',
-	  AboutAlbum: '',
-	  Coll:'',
+      id: props.location.state.album._id,
+	  name: props.location.state.album.name,
+      Photo: props.location.state.album.Photo,
+	  date: props.location.state.album.date,
+	  Artist: props.location.state.album.Artist,
+	  AboutAlbum: props.location.state.album.AboutAlbum,
+	  Coll:props.location.state.album.Coll
     }   
     this.onNameChange = this.onNameChange.bind(this);
 	this.onDateChange = this.onDateChange.bind(this);
@@ -104,8 +100,8 @@ class UpdaterInner extends React.Component {
   {
     e.preventDefault();
 	
-    fetch('album', {
-      method: 'POST', body: 
+    fetch(`album/${this.state.id}`, {
+      method: 'PATCH', body: 
       JSON.stringify({
         name: this.state.name,
 		date: this.state.date,
@@ -121,7 +117,7 @@ class UpdaterInner extends React.Component {
       return res.json();  
     }).then((data) =>
     {
-      this.props.dispatch(todoAdd(data._id, data.name, data.date, data.Photo, data.date, data.AboutAlbum, data.Coll));
+      this.props.dispatch(todoUpdate(data._id, data.name, data.date, data.Photo, data.date, data.AboutAlbum, data.Coll));
       this.props.history('/');
     })
   }
@@ -150,7 +146,7 @@ class UpdaterInner extends React.Component {
 				<br></br>
 			<label>Фото<input type="file" name="filedata" onChange = {this.onPhotoChange} /></label>
 			<label>Об альбоме<input type="file" name="filedat" onChange = {this.onAboutAlbumChange} /></label>
-			<input type="submit" value="Add" />
+			<input type="submit" value="Update" />
         </form>
       </div>
     )  
@@ -159,7 +155,7 @@ class UpdaterInner extends React.Component {
 
 const Updater = (props) =>{
   return (
-    <UpdaterInner {...props} history={useNavigate()}/>
+    <UpdaterInner {...props} location={useLocation()} history={useNavigate()}/>
   )
 }
 

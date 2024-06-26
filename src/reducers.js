@@ -42,7 +42,7 @@ function todo (state = [], action)
 		case TODO_UPDATE:
 			return state.map(function(entit){
 				if (entit._id === action._id){
-					return {...entit, Photo: action.Photo}
+					return {...entit}
 				}
 				return entit
 			})

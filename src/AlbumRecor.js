@@ -4,20 +4,18 @@ import {useNavigate} from 'react-router-dom';
 
 import {todoDelete} from './actions';
 
-function GetNavigate(path, toData){
-	const navigate = useNavigate();
-	return navigate(path, {state: toData.state});
-}
 
-class AlbumRecor extends React.Component {
+class AlbumRecorInner extends React.Component {
 	constructor(props) 
 	{
 		super(props);
 		this.onDeleteClick = this.onDeleteClick.bind(this);
-		this.handleClickUpdate = () => {
-			const data = props; 
-			GetNavigate('/UpdateAlbum', {state: data});
-			};	
+		this.handleClickUpdate = this.handleClickUpdate.bind(this);
+	}
+	
+	handleClickUpdate(e)
+	{
+		this.props.history('/UpdateAlbum', {state: {album: this.props.entity}});
 	}
 	
 	onDeleteClick(e)
@@ -55,6 +53,12 @@ class AlbumRecor extends React.Component {
 			</li>
 		)	
     }
+}
+
+const AlbumRecor = (props) =>{
+	return (
+		<AlbumRecorInner {...props} history={useNavigate()}/>
+	)
 }
 
 
